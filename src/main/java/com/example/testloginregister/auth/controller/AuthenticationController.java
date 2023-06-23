@@ -1,6 +1,11 @@
-package com.example.testloginregister.auth;
+package com.example.testloginregister.auth.controller;
 
+import com.example.testloginregister.auth.AuthenticateRequest;
+import com.example.testloginregister.auth.AuthenticateService;
+import com.example.testloginregister.auth.AuthenticationResponse;
+import com.example.testloginregister.auth.RegisterRequest;
 import com.example.testloginregister.repository.AppUserRepository;
+import com.example.testloginregister.user.AppUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

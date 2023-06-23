@@ -25,10 +25,12 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/demo-controller").permitAll()
-                        .requestMatchers("api/demo-controller/admin/**").hasRole(String.valueOf(Role.ADMIN))
-                        .anyRequest().authenticated()
+                                .requestMatchers("/h2/**").permitAll()
+                                .requestMatchers("/api/auth/**").permitAll()
+                                .requestMatchers("/api/project/admin/**").hasAuthority("ADMIN")
+//                        .requestMatchers("/api/demo-controller").permitAll()
+//                        .requestMatchers("api/demo-controller/admin/**").hasRole(String.valueOf(Role.ADMIN))
+                                .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
